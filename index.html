@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>TwenWin - Interactive Mobile Prototype</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="top-bar card">
+      <div class="brand">
+        <h1>🎰 TwenWin</h1>
+        <p>Casual Arcade Jackpot</p>
+      </div>
+      <div class="wallet">
+        <span>💰</span>
+        <strong id="coinCount">1500</strong>
+      </div>
+    </header>
+
+    <main id="screenContainer">
+      <section id="screen-spin" class="screen active card">
+        <h2>Lucky Spin Wheel</h2>
+        <p class="sub">Putar roda untuk menang hadiah biasa, langka, atau epic.</p>
+
+        <div class="wheel-wrap">
+          <div class="pointer">▼</div>
+          <div id="wheel" class="wheel"></div>
+          <button id="spinBtn" class="primary">SPIN (50 koin)</button>
+        </div>
+
+        <div class="rewards-panel">
+          <h3>Tier Hadiah</h3>
+          <div class="chips">
+            <span class="chip common">Biasa</span>
+            <span class="chip rare">Langka</span>
+            <span class="chip epic">Epic</span>
+          </div>
+          <p id="spinResult">Tekan spin untuk mulai.</p>
+        </div>
+      </section>
+
+      <section id="screen-jackpot" class="screen card">
+        <h2>Jackpot Harian</h2>
+        <p class="sub">Beli tiket dengan koin dan tunggu draw berikutnya.</p>
+
+        <div class="jackpot-box">
+          <h3>🏆 Total Pot: <span id="jackpotPot">8000</span> koin</h3>
+          <p>Waktu draw: <strong id="jackpotTimer">00:30</strong></p>
+          <p>Tiket kamu: <strong id="myTickets">0</strong></p>
+          <div class="actions">
+            <button id="buyTicketBtn" class="secondary">Beli Tiket (100)</button>
+            <button id="forceDrawBtn" class="ghost">Simulasi Draw</button>
+          </div>
+          <p id="jackpotResult">Belum ada pemenang.</p>
+        </div>
+      </section>
+
+      <section id="screen-minigames" class="screen card">
+        <h2>Mini Games</h2>
+        <div class="mini-tabs">
+          <button class="tab active" data-mini="slot">Slot</button>
+          <button class="tab" data-mini="scratch">Scratch</button>
+          <button class="tab" data-mini="dice">Lucky Dice</button>
+        </div>
+
+        <div id="mini-slot" class="mini-pane active">
+          <div class="slot-machine">
+            <div class="reel" id="reel1">🍒</div>
+            <div class="reel" id="reel2">🍋</div>
+            <div class="reel" id="reel3">⭐</div>
+          </div>
+          <button id="slotSpinBtn" class="primary">Spin Slot (40)</button>
+          <p id="slotResult">Cocokkan 3 simbol untuk jackpot mini.</p>
+        </div>
+
+        <div id="mini-scratch" class="mini-pane">
+          <canvas id="scratchCanvas" width="260" height="140"></canvas>
+          <p id="scratchPrize">Hadiah tersembunyi: ???</p>
+          <button id="resetScratchBtn" class="secondary">Reset Scratch</button>
+        </div>
+
+        <div id="mini-dice" class="mini-pane">
+          <div id="diceVisual" class="dice">🎲</div>
+          <button id="rollDiceBtn" class="primary">Lempar Dadu (30)</button>
+          <p id="diceResult">Roll 5 atau 6 untuk bonus besar.</p>
+        </div>
+      </section>
+
+      <section id="screen-leaderboard" class="screen card">
+        <h2>Leaderboard</h2>
+        <p class="sub">Peringkat berdasarkan total kemenangan.</p>
+        <ol id="leaderboardList" class="leaderboard"></ol>
+      </section>
+
+      <section id="screen-shop" class="screen card">
+        <h2>Shop & Booster</h2>
+        <div class="shop-grid">
+          <button class="shop-item" data-price="300" data-name="Spin Booster">⚡ Spin Booster <small>300</small></button>
+          <button class="shop-item" data-price="450" data-name="Jackpot Ticket Bundle">🎫 Ticket Bundle <small>450</small></button>
+          <button class="shop-item" data-price="600" data-name="Neon Wheel Skin">🌈 Wheel Skin <small>600</small></button>
+          <button class="shop-item" data-price="200" data-name="Lucky Charm">🍀 Lucky Charm <small>200</small></button>
+        </div>
+        <p id="shopResult">Pilih item untuk membeli.</p>
+      </section>
+
+      <section id="screen-profile" class="screen card">
+        <h2>Profile & Daily Rewards</h2>
+        <div class="profile-box">
+          <p>👤 Player: <strong>TwenPlayer</strong></p>
+          <p>🔥 Streak Login: <strong id="streakCount">1 hari</strong></p>
+          <button id="dailyClaimBtn" class="primary">Claim Daily Reward</button>
+          <p id="dailyResult">Claim reward setiap hari untuk bonus lebih besar.</p>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav card">
+      <button class="nav-btn active" data-screen="spin">🎡<small>Spin</small></button>
+      <button class="nav-btn" data-screen="jackpot">🏆<small>Jackpot</small></button>
+      <button class="nav-btn" data-screen="minigames">🕹️<small>Mini</small></button>
+      <button class="nav-btn" data-screen="leaderboard">📈<small>Rank</small></button>
+      <button class="nav-btn" data-screen="shop">🛒<small>Shop</small></button>
+      <button class="nav-btn" data-screen="profile">👤<small>Profile</small></button>
+    </nav>
+
+    <canvas id="confetti"></canvas>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
