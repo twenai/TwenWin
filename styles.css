@@ -1,0 +1,164 @@
+:root {
+  --bg: #0f1020;
+  --card: #1a1c35;
+  --accent: #ffcc33;
+  --text: #f8f8ff;
+  --muted: #b9bfd8;
+  --success: #66e69d;
+  --danger: #ff768e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at top, #2d1e69 0%, var(--bg) 40%);
+  color: var(--text);
+}
+.app-shell {
+  max-width: 420px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 14px 12px 88px;
+  position: relative;
+}
+.card {
+  background: rgba(26, 28, 53, 0.9);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 14px 24px rgba(0,0,0,0.25);
+}
+.top-bar {
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand h1 { margin: 0; font-size: 1.2rem; }
+.brand p { margin: 2px 0 0; color: var(--muted); font-size: .75rem; }
+.wallet {
+  font-size: 1.05rem;
+  background: rgba(255, 204, 51, 0.2);
+  padding: 8px 10px;
+  border-radius: 999px;
+}
+main { margin-top: 12px; }
+.screen { display: none; padding: 14px; }
+.screen.active { display: block; }
+h2 { margin-top: 0; }
+.sub { color: var(--muted); margin-top: -8px; font-size: .86rem; }
+
+.wheel-wrap { display: grid; place-items: center; gap: 10px; margin: 8px 0 12px; }
+.pointer { font-size: 1.2rem; color: var(--accent); margin-bottom: -8px; z-index: 2; }
+.wheel {
+  width: 260px; height: 260px; border-radius: 50%;
+  border: 8px solid #fff;
+  background: conic-gradient(
+    #ffcd4b 0 45deg,
+    #ff8fab 45deg 90deg,
+    #8de7ff 90deg 135deg,
+    #9dfca8 135deg 180deg,
+    #b7a7ff 180deg 225deg,
+    #ffbd7e 225deg 270deg,
+    #8af4d4 270deg 315deg,
+    #ff8f8f 315deg 360deg
+  );
+  transition: transform 3.5s cubic-bezier(.1,.8,.2,1);
+}
+.rewards-panel { text-align: center; }
+.chips { display: flex; gap: 8px; justify-content: center; }
+.chip { padding: 5px 10px; border-radius: 999px; font-size: .76rem; font-weight: 700; }
+.common { background: rgba(141,231,255,.2); }
+.rare { background: rgba(183,167,255,.25); }
+.epic { background: rgba(255,143,143,.25); }
+
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 12px;
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+}
+.primary { background: linear-gradient(90deg, #ef9f08, #f05668); }
+.secondary { background: #4f64ff; }
+.ghost { background: transparent; border: 1px solid #778; }
+.actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.mini-tabs { display: flex; gap: 8px; margin-bottom: 10px; }
+.tab { flex: 1; background: #2a2d4d; }
+.tab.active { outline: 2px solid var(--accent); }
+.mini-pane { display: none; }
+.mini-pane.active { display: block; }
+.slot-machine {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 10px 0;
+}
+.reel {
+  background: #101224;
+  border: 1px solid #3f4475;
+  border-radius: 12px;
+  min-height: 80px;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+}
+#scratchCanvas {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 12px;
+  border: 2px dashed #818cc5;
+  background: #f7f8ff;
+}
+.dice {
+  font-size: 4rem;
+  text-align: center;
+  margin: 14px 0;
+}
+.leaderboard {
+  padding-left: 22px;
+  line-height: 1.9;
+}
+.shop-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.shop-item { background: #2f3360; text-align: left; }
+.shop-item small { float: right; color: var(--accent); }
+.profile-box {
+  background: #14162d;
+  border-radius: 14px;
+  padding: 12px;
+}
+.bottom-nav {
+  position: fixed;
+  left: 50%; transform: translateX(-50%);
+  bottom: 8px;
+  width: min(420px, calc(100% - 14px));
+  padding: 8px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+}
+.nav-btn {
+  background: transparent;
+  color: #d4d8ff;
+  font-size: .9rem;
+  display: grid;
+  place-items: center;
+  padding: 6px 2px;
+}
+.nav-btn small { font-size: .64rem; }
+.nav-btn.active {
+  background: rgba(255,204,51,.15);
+  color: white;
+  border-radius: 10px;
+}
+#confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
