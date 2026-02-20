@@ -29,3 +29,26 @@ Lalu buka `http://localhost:8000` di browser.
 
 Prototype ini fokus ke gameplay loop dan UX template agar bisa jadi fondasi game online.
 Untuk produksi, sambungkan ke backend auth + database + server RNG + leaderboard real-time.
+
+
+## Deploy ke Vercel
+
+1. Install dependency:
+
+```bash
+npm install
+```
+
+2. Login dan jalankan mode lokal Vercel:
+
+```bash
+npm run dev
+```
+
+3. Deploy production:
+
+```bash
+npm run deploy
+```
+
+Konfigurasi deployment ada di `vercel.json`, dan dependency Vercel ada di `package.json`.
