@@ -21,6 +21,7 @@ Lalu buka `http://localhost:8000` di browser.
 - `index.html` — layout layar mobile (Spin, Jackpot, Mini-games, Rank, Shop, Profile)
 - `styles.css` — tema visual, tombol, komponen UI, animasi dasar
 - `app.js` — flow game interaktif, state, RNG, mini-games, confetti, audio
+- `404.html` — halaman fallback Not Found agar user tetap bisa kembali ke prototype
 - `engine-scripts/Unity_TwenWinManager.cs` — script starter Unity
 - `engine-scripts/Godot_TwenWinManager.gd` — script starter Godot
 

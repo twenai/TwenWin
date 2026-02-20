@@ -196,9 +196,11 @@ const canvas = document.getElementById('scratchCanvas');
 const ctx = canvas.getContext('2d');
 const scratchPrizeLabel = document.getElementById('scratchPrize');
 let scratchPrize = 0;
+let scratchClaimed = false;
 
 function resetScratch() {
   scratchPrize = [60, 120, 250, 400][Math.floor(Math.random() * 4)];
+  scratchClaimed = false;
   scratchPrizeLabel.textContent = `Hadiah tersembunyi: ${scratchPrize} koin`;
   ctx.fillStyle = '#6f78cc';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -220,6 +222,15 @@ function scratch(e) {
   ctx.fill();
 }
 
+
+function claimScratchPrize() {
+  if (scratchClaimed) return;
+  scratchClaimed = true;
+  beep(sounds.reward);
+  addCoins(scratchPrize);
+  scratchPrizeLabel.textContent = `Hadiah diklaim: +${scratchPrize} koin`;
+}
+
 canvas.addEventListener('mousedown', () => scratching = true);
 canvas.addEventListener('mouseup', () => scratching = false);
 canvas.addEventListener('mousemove', scratch);
@@ -227,11 +238,8 @@ canvas.addEventListener('touchstart', () => scratching = true);
 canvas.addEventListener('touchend', () => scratching = false);
 canvas.addEventListener('touchmove', scratch);
 
-canvas.addEventListener('mouseup', () => {
-  beep(sounds.reward);
-  addCoins(scratchPrize);
-  scratchPrizeLabel.textContent = `Hadiah diklaim: +${scratchPrize} koin`;
-});
+canvas.addEventListener('mouseup', claimScratchPrize);
+canvas.addEventListener('touchend', claimScratchPrize);
 
 document.getElementById('resetScratchBtn').addEventListener('click', () => {
   beep(sounds.click);
