@@ -1,17 +1,11 @@
 {
   "name": "twenwin-prototype",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "TwenWin interactive HTML5 mobile prototype",
   "scripts": {
-    "dev": "vercel dev",
+    "dev": "npx vercel dev",
     "build": "echo 'Static site, no build step required'",
-    "deploy": "vercel --prod"
-  },
-  "devDependencies": {
-    "vercel": "^39.1.0"
-  },
-  "engines": {
-    "node": ">=18"
+    "deploy": "npx vercel --prod"
   }
 }

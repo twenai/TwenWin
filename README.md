@@ -33,22 +33,17 @@ Untuk produksi, sambungkan ke backend auth + database + server RNG + leaderboard
 
 ## Deploy ke Vercel
 
-1. Install dependency:
-
-```bash
-npm install
-```
-
-2. Login dan jalankan mode lokal Vercel:
+1. Jalankan mode lokal Vercel (tanpa install `vercel` sebagai dependency project):
 
 ```bash
 npm run dev
 ```
 
-3. Deploy production:
+2. Deploy production:
 
 ```bash
 npm run deploy
 ```
 
-Konfigurasi deployment ada di `vercel.json` (tanpa `routes`, agar kompatibel dengan `cleanUrls`/`trailingSlash`), dan dependency Vercel ada di `package.json`.
+Konfigurasi deployment ada di `vercel.json` (tanpa `routes`, agar kompatibel dengan `cleanUrls`/`trailingSlash`).
+Catatan: CLI Vercel dipanggil via `npx` dari script, sehingga warning `"vercel" found in project dependencies` tidak muncul.
